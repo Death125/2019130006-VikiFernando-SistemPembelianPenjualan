@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+*/
+.buttonStyle{
+    -fx-background-color : linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+    -fx-text-fill : #00539CFF;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+.buttonStyle:hover {
+    -fx-background-color: linear-gradient(#228B22, #ADFF2F);
+}
+
+.buttonStyle:selected{
+     animation: ease-out 3s normal;
+     -fx-font-size: 25px;
+}
+
+.buttonStyle2{
+    -fx-text-fill: #0000ff;
+    -fx-background-color: #fffDD0;
+}
+
+.buttonStyle2:hover {
+    -fx-background-color: linear-gradient(rgba(48,206,245,0.9791183294663574), rgba(0,255,26,0.9489559164733179));
+}
+
+.buttonStyle2:selected{
+     animation: ease-out 3s normal;
+}
+
+.buttonStyle3{
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #32cd32;
+}
+
+.buttonStyle3:hover {
+    -fx-background-color: linear-gradient(rgba(48,206,245,0.9791183294663574), rgba(0,255,26,0.9489559164733179));
+}
+
+.buttonStyle3:selected{
+     animation: ease-out 3s normal;
+}
+
+#logoutButton:hover{
+     -fx-background-color: linear-gradient(#228B22, #ADFF2F);
+}
+
+#logoutButton{
+     -fx-text-fill : white;
+     -fx-background-color :red;
+     -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+#logoutButton:selected{
+         animation: ease-out 3s normal;
+}
+
+#gradient1{
+   -fx-text-fill : #ecf0ff;
+}

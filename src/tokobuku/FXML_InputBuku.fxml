@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="516.0" prefWidth="535.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tokobuku.FXML_InputBukuController">
+   <children>
+      <ImageView fitHeight="516.0" fitWidth="535.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/InputBuku.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="73.0" layoutY="31.0" text="Tambah/Update Buku" textFill="#c1c62d">
+         <font>
+            <Font name="Bookman Old Style Bold" size="34.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.5">
+               <input>
+                  <DropShadow height="22.49" radius="10.372499999999999" />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <TextField fx:id="txtKodeBrg" layoutX="245.0" layoutY="125.0" prefHeight="36.0" prefWidth="251.0" />
+      <TextField fx:id="txtNamaBrg" layoutX="245.0" layoutY="175.0" prefHeight="36.0" prefWidth="251.0" />
+      <TextField fx:id="txtHarga" layoutX="245.0" layoutY="285.0" prefHeight="36.0" prefWidth="251.0" />
+      <TextField fx:id="txtJumlah" layoutX="245.0" layoutY="336.0" prefHeight="36.0" prefWidth="251.0" />
+      <Button fx:id="btnSimpan" layoutX="40.0" layoutY="426.0" mnemonicParsing="false" onAction="#simpanKlik" text="Simpan">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnBatal" layoutX="211.0" layoutY="426.0" mnemonicParsing="false" onAction="#batalKlik" prefHeight="54.0" prefWidth="117.0" text="Batal">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnKeluar" layoutX="380.0" layoutY="426.0" mnemonicParsing="false" onAction="#keluarKlik" prefHeight="54.0" prefWidth="117.0" text="Keluar">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ComboBox fx:id="chbJenis" layoutX="245.0" layoutY="231.0" prefHeight="31.0" prefWidth="251.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <Label layoutX="40.0" layoutY="117.0" prefHeight="52.0" prefWidth="167.0" text="Kode Barang" textFill="#ff9400">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="25.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.38">
+               <input>
+                  <DropShadow height="26.93" radius="10.74" spread="0.53" width="18.03" />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <Label layoutX="40.0" layoutY="167.0" prefHeight="52.0" prefWidth="167.0" text="Nama Barang" textFill="#ff9400">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="25.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.38">
+               <input>
+                  <DropShadow height="26.93" radius="10.74" spread="0.53" width="18.03" />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <Label layoutX="40.0" layoutY="221.0" prefHeight="52.0" prefWidth="167.0" text="Jenis" textFill="#ff9400">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="25.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.38">
+               <input>
+                  <DropShadow height="26.93" radius="10.74" spread="0.53" width="18.03" />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <Label layoutX="40.0" layoutY="277.0" prefHeight="52.0" prefWidth="167.0" text="Harga" textFill="#ff9400">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="25.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.38">
+               <input>
+                  <DropShadow height="26.93" radius="10.74" spread="0.53" width="18.03" />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <Label layoutX="40.0" layoutY="328.0" prefHeight="52.0" prefWidth="167.0" text="Jumlah" textFill="#ff9400">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="25.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.38">
+               <input>
+                  <DropShadow height="26.93" radius="10.74" spread="0.53" width="18.03" />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

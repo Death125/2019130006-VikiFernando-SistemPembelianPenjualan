@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="638.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tokoelektronik.FXML_DisplayBarang_elektronikController">
+   <children>
+      <ImageView fitHeight="644.0" fitWidth="735.0" layoutY="-6.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/InputElektronik.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="title" layoutX="36.0" layoutY="-3.0" prefHeight="120.0" prefWidth="232.0" text="Data Barang Elektronik" textFill="#ff9400" wrapText="true">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="45.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.38">
+               <input>
+                  <DropShadow height="26.93" radius="10.74" spread="0.53" width="18.03" />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <Label layoutX="448.0" layoutY="25.0" text="Cari Data" textFill="#ff8a00">
+         <font>
+            <Font name="Bookman Old Style Bold" size="28.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.5">
+               <input>
+                  <DropShadow color="RED" height="12.1" radius="6.2925" width="15.07" />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <TextField fx:id="searchData" layoutX="438.0" layoutY="68.0" onKeyReleased="#cariData" prefHeight="40.0" prefWidth="270.0" promptText="Search" style="-fx-background-radius: 5em; -fx-background-color: white; -fx-border-color: #A52A2A; -fx-border-radius: 5em; -fx-border-width: 3px;">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="tbvBarangElektronik" layoutX="94.0" layoutY="140.0" prefHeight="348.0" prefWidth="546.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+         </columns>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TableView>
+      <Button fx:id="AddButton" layoutX="134.0" layoutY="566.0" maxHeight="52.0" maxWidth="79.0" mnemonicParsing="false" onAction="#tambahKlik" prefHeight="52.0" prefWidth="79.0" style="-fx-background-radius: 5em; -fx-min-width: 3px; -fx-min-height: 3px; -fx-max-width: 3px; -fx-max-height: 3px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="93.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/AddButton.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="UpdateButton" layoutX="254.0" layoutY="565.0" mnemonicParsing="false" onAction="#updateKlik" prefHeight="3.0" prefWidth="3.0" style="-fx-background-radius: 5em; -fx-max-width: 3px; -fx-max-height: 3px; -fx-min-height: 3px; -fx-min-width: 3px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="97.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Update%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="672.0" layoutY="267.0" mnemonicParsing="false" onAction="#sesudahKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Next%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnKeluar" layoutX="564.0" layoutY="545.0" mnemonicParsing="false" onAction="#keluarKlik" prefHeight="73.0" prefWidth="143.0" style="-fx-background-radius: 5em;" text="Keluar" textFill="WHITE">
+         <font>
+            <Font name="Century751 BT Italic" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="672.0" layoutY="337.0" mnemonicParsing="false" onAction="#akhirKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Last%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="43.0" layoutY="267.0" mnemonicParsing="false" onAction="#sebelumKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Previous%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="43.0" layoutY="337.0" mnemonicParsing="false" onAction="#awalKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/First%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="DeleteButton" layoutX="376.0" layoutY="566.0" mnemonicParsing="false" onAction="#hapusKlik" prefHeight="3.0" prefWidth="3.0" style="-fx-background-radius: 5em; -fx-max-width: 3px; -fx-max-height: 3px; -fx-min-height: 3px; -fx-min-width: 3px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="95.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Delete%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnBeli" layoutX="105.0" layoutY="537.0" mnemonicParsing="false" onAction="#beliKlik" prefHeight="73.0" prefWidth="143.0" style="-fx-background-radius: 5em;" text="Beli" textFill="WHITE">
+         <font>
+            <Font name="Century751 BT Italic" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnJual" layoutX="312.0" layoutY="539.0" mnemonicParsing="false" onAction="#jualKlik" prefHeight="73.0" prefWidth="143.0" style="-fx-background-radius: 5em;" text="Jual" textFill="WHITE">
+         <font>
+            <Font name="Century751 BT Italic" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnTambahBarang" layoutX="92.0" layoutY="528.0" mnemonicParsing="false" onAction="#tambahBarangKlik" prefHeight="73.0" prefWidth="143.0" style="-fx-background-radius: 5em;" text="Tambah" textFill="WHITE">
+         <font>
+            <Font name="Century751 BT Italic" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

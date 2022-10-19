@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="451.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistempembelianpenjualan.FXML_PilihCustomerController">
+   <children>
+      <ImageView fitHeight="572.0" fitWidth="451.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/background.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="75.0" layoutY="14.0" prefHeight="147.0" prefWidth="302.0" text="Pilih Toko yang ingin anda kunjungi" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="33.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbvPilihCustomer" layoutX="83.0" layoutY="193.0" prefHeight="256.0" prefWidth="286.0">
+        <columns>
+          <TableColumn prefWidth="285.0" text="C1" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnConfirm" layoutX="166.0" layoutY="483.0" mnemonicParsing="false" onAction="#confirmKlik" prefHeight="52.0" prefWidth="120.0" style="-fx-background-radius: 5em;" text="Confirm">
+         <font>
+            <Font size="23.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnSesudah" layoutX="380.0" layoutY="256.0" mnemonicParsing="false" onAction="#sesudahKlik" prefHeight="61.0" prefWidth="57.0" style="-fx-background-radius: 5em;" text="&gt;">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnSebelum" layoutX="14.0" layoutY="256.0" mnemonicParsing="false" onAction="#sebelumKlik" prefHeight="61.0" prefWidth="57.0" style="-fx-background-radius: 5em;" text="&lt;">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnAkhir" layoutX="380.0" layoutY="338.0" mnemonicParsing="false" onAction="#akhirKlik" prefHeight="61.0" prefWidth="57.0" style="-fx-background-radius: 5em;" text="&gt;&gt;">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnAwal" layoutX="12.0" layoutY="338.0" mnemonicParsing="false" onAction="#awalKlik" prefHeight="61.0" prefWidth="57.0" style="-fx-background-radius: 5em;" text="&lt;&lt;">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

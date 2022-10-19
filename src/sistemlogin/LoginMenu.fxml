@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemlogin.LoginMenuController">
+   <children>
+      <ImageView fitHeight="938.0" fitWidth="1310.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9aa2ab" height="597.0" layoutX="364.0" layoutY="176.0" stroke="BLACK" strokeType="INSIDE" width="592.0" />
+      <Label fx:id="gradient1" layoutX="508.0" layoutY="176.0" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Geometr415 Blk BT Black" size="96.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUsernameOrEmail" focusTraversable="false" layoutX="419.0" layoutY="340.0" prefHeight="79.0" prefWidth="479.0" promptText="User name or Email" style="-fx-background-radius: 5em;">
+         <font>
+            <Font name="Franklin Gothic Demi" size="32.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="txtPassword" focusTraversable="false" layoutX="419.0" layoutY="449.0" prefHeight="79.0" prefWidth="479.0" promptText="Password" style="-fx-background-radius: 5em;">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="32.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="btnLogin" layoutX="419.0" layoutY="578.0" mnemonicParsing="false" onAction="#loginKlik" prefHeight="68.0" prefWidth="479.0" style="-fx-background-radius: 5em;" text="Login">
+         <font>
+            <Font size="31.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnRegister" layoutX="582.0" layoutY="705.0" mnemonicParsing="false" onAction="#registerKlik" prefHeight="30.0" prefWidth="157.0" style="-fx-background-radius: 5em;" text="Register">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="565.0" layoutY="668.0" prefHeight="30.0" prefWidth="191.0" text="Not Have Account ?" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
