@@ -10,8 +10,17 @@ package transaksi;
  */
 public class TransaksiModel {
 
-    String kodebrg, namabrg, jenis;
+    String nojual, kodebrg, namabrg, jenis;
     double harga;
+    int jumlah;
+
+    public String getNojual() {
+        return nojual;
+    }
+
+    public void setNojual(String nojual) {
+        this.nojual = nojual;
+    }
 
     public String getKodebrg() {
         return kodebrg;
@@ -36,7 +45,6 @@ public class TransaksiModel {
     public void setHarga(double harga) {
         this.harga = harga;
     }
-    int jumlah;
 
     public String getNamabrg() {
         return namabrg;

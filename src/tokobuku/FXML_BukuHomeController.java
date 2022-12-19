@@ -15,7 +15,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import sistemlogin.DB_Login;
 
@@ -35,14 +34,16 @@ public class FXML_BukuHomeController implements Initializable {
     private Button btnMasuk;
     @FXML
     private Button btnKembali;
-    @FXML
-    private Label bookTitle;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        addButtonStyle();
+    }
+
+    void addButtonStyle() {
         btnMasuk.getStyleClass().add("buttonStyle2");
         btnKembali.getStyleClass().add("buttonStyle3");
     }
@@ -64,15 +65,7 @@ public class FXML_BukuHomeController implements Initializable {
 
     @FXML
     private void kembaliKlik(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/sistempembelianpenjualan/FXML_Menu.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Menu");
-        String css = this.getClass().getResource("/Css/style.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.centerOnScreen();
-        stage.show();
+        btnKembali.getScene().getWindow().hide();
     }
 
 }

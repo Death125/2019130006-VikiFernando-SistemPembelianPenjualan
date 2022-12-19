@@ -35,7 +35,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="bookTitle" layoutX="108.0" layoutY="72.0" prefHeight="71.0" prefWidth="785.0" style="-fx-alignment: center;" text="Bright's Store" textAlignment="CENTER">
+      <Label layoutX="108.0" layoutY="72.0" prefHeight="71.0" prefWidth="785.0" style="-fx-alignment: center;" text="Bright's Store" textAlignment="CENTER">
          <font>
             <Font name="Lucida Calligraphy Italic" size="67.0" />
          </font>

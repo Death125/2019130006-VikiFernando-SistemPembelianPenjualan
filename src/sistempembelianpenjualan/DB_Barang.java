@@ -7,8 +7,17 @@ package sistempembelianpenjualan;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+import sistemlogin.DB_Login;
+import sistemlogin.LoginMenuController;
 
 /**
  *
@@ -448,4 +457,23 @@ public class DB_Barang {
     }
 
     /**/
+    final DB_Login ldb = new DB_Login();
+
+    public void print() {
+        Koneksi con = new Koneksi();
+        String is = "./src/sistempembelianpenjualan/laporanBarang.jrxml";
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("getTable", ldb.getUser(LoginMenuController.Username).toLowerCase());
+
+        con.bukaKoneksi();
+        try {
+            JasperReport jasperReport = JasperCompileManager.compileReport(is);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, con.dbKoneksi);
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        con.tutupKoneksi();
+    }
 }

@@ -7,7 +7,6 @@ package sistemlogin;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -121,7 +120,7 @@ public class RegisterMenuController implements Initializable {
                     con.preparedStatement.executeUpdate();
                     berhasil = true;
 
-                    rdb.CreateNewGoodsData(username);
+                    rdb.CreateNewAccountData(username);
                     Alert b = new Alert(Alert.AlertType.INFORMATION, "Your Account Has Been Created", ButtonType.OK);
                     b.showAndWait();
 

@@ -32,7 +32,7 @@ public class DB_Customer {
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
             ResultSet rs = con.statement.executeQuery("Select Username from login_data"
-                    + " WHERE NOT Username='buku' AND NOT Username='elektronik' ORDER BY Username ASC; ");
+                    + " WHERE NOT Username='buku' AND NOT Username='elektronik' AND NOT Username='admin' ORDER BY Username ASC; ");
 
             int i = 1;
             while (rs.next()) {

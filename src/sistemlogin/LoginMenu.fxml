@@ -19,7 +19,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9aa2ab" height="597.0" layoutX="364.0" layoutY="176.0" stroke="BLACK" strokeType="INSIDE" width="592.0" />
-      <Label fx:id="gradient1" layoutX="508.0" layoutY="176.0" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="508.0" layoutY="176.0" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Geometr415 Blk BT Black" size="96.0" />
          </font>

@@ -12,15 +12,13 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author User
+ *
  */
 public class SistemPembelianPenjualan extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/sistemlogin/LoginMenu.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("tes.fxml"));
-        // Parent root = FXMLLoader.load(getClass().getResource("/transaksi/FXML_Keranjang.fxml"));
         stage.setTitle("Login");
         Scene scene = new Scene(root);
 

@@ -29,7 +29,7 @@ import sistempembelianpenjualan.FXML_PilihCustomerController;
 public class FXML_InputBukuController implements Initializable {
 
     private boolean editData = false;
-    private DB_Customer ldc = new DB_Customer();
+    final DB_Customer ldc = new DB_Customer();
 
     @FXML
     private TextField txtKodeBrg;
@@ -53,15 +53,20 @@ public class FXML_InputBukuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        addButtonStyle();
+
         chbJenis.setItems(FXCollections.observableArrayList("Komik", "Novel", "Majalah", "Manga", "Ensiklopedia", "Buku Pelajaran"));
         restrictTxtHarga();
         restrictTxtJumlah();
+    }
 
+    void addButtonStyle() {
         btnSimpan.getStyleClass().add("buttonStyle2");
         btnBatal.getStyleClass().add("buttonStyle2");
         btnKeluar.getStyleClass().add("buttonStyle2");
     }
 
+    /*Validasi*/
     private void restrictTxtHarga() {
         // force the field to be numeric only
         txtHarga.textProperty().addListener(new ChangeListener<String>() {
@@ -88,6 +93,7 @@ public class FXML_InputBukuController implements Initializable {
         });
     }
 
+    /**/
     public void execute(BukuModel bum) {
         if (!bum.getKodebrg().isEmpty()) {
             editData = true;
@@ -129,9 +135,11 @@ public class FXML_InputBukuController implements Initializable {
             else if (FXML_MenuController.dtBarang.validasi(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)) > 0
                     && (txtNamaBrg.getText().equals(FXML_MenuController.dtBarang.cariNamaBarang(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)))
                     && chbJenis.getSelectionModel().getSelectedItem().equals(FXML_MenuController.dtBarang.cariJenis((bum.kodebrg), ldc.getUser(FXML_PilihCustomerController.user))))) {
+
                 if (FXML_MenuController.dtBuku.update()) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION, "Data berhasil disimpan", ButtonType.OK);
                     a.showAndWait();
+
                     batalKlik(event);
                 } else {
                     Alert a = new Alert(Alert.AlertType.ERROR, "Data gagal disimpan", ButtonType.OK);
@@ -143,15 +151,18 @@ public class FXML_InputBukuController implements Initializable {
             else if (FXML_MenuController.dtBarang.validasi(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)) > 0) {
                 txtNamaBrg.setText(FXML_MenuController.dtBarang.cariNamaBarang(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)));
                 chbJenis.setValue(FXML_MenuController.dtBarang.cariJenis(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)));
+
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Kodebrg sudah ada pada table lain tidak boleh mengganti namabrg dan jenisnya . . . ", ButtonType.OK);
                 a.showAndWait();
                 Alert b = new Alert(Alert.AlertType.INFORMATION, "Silahkan Simpan lagi", ButtonType.OK);
                 b.showAndWait();
+
                 txtNamaBrg.requestFocus();
             } //Jika kode barang tidak ada ditabel lain bisa langsung diupdate
             else if (FXML_MenuController.dtBuku.update()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Data berhasil diubah", ButtonType.OK);
                 a.showAndWait();
+
                 txtKodeBrg.setEditable(true);
                 batalKlik(event);
             } else {
@@ -164,6 +175,7 @@ public class FXML_InputBukuController implements Initializable {
             if (FXML_MenuController.dtBuku.validasi(bum.getKodebrg()) > 0) {
                 Alert a = new Alert(Alert.AlertType.ERROR, "Data sudah ada", ButtonType.OK);
                 a.showAndWait();
+
                 txtKodeBrg.requestFocus();
             } //cek jumlah dan harga tidak boleh 0
             else if (harga <= 0) {
@@ -176,9 +188,11 @@ public class FXML_InputBukuController implements Initializable {
             //bisa menambahkan data    
             else if (FXML_MenuController.dtBarang.validasi(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)) <= 0
                     && FXML_MenuController.dtBuku.validasi(bum.getKodebrg()) <= 0) {
+
                 if (FXML_MenuController.dtBuku.insert()) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION, "Data berhasil disimpan", ButtonType.OK);
                     a.showAndWait();
+
                     batalKlik(event);
                 } else {
                     Alert a = new Alert(Alert.AlertType.ERROR, "Data gagal disimpan", ButtonType.OK);
@@ -189,9 +203,11 @@ public class FXML_InputBukuController implements Initializable {
             else if (FXML_MenuController.dtBarang.validasi(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)) > 0
                     && txtNamaBrg.getText().equals(FXML_MenuController.dtBarang.cariNamaBarang(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)))
                     && chbJenis.getSelectionModel().getSelectedItem().equals(FXML_MenuController.dtBarang.cariJenis(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)))) {
+
                 if (FXML_MenuController.dtBuku.insert()) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION, "Data berhasil disimpan", ButtonType.OK);
                     a.showAndWait();
+
                     batalKlik(event);
                 } else {
                     Alert a = new Alert(Alert.AlertType.ERROR, "Data gagal disimpan", ButtonType.OK);
@@ -202,10 +218,12 @@ public class FXML_InputBukuController implements Initializable {
             else if (FXML_MenuController.dtBarang.validasi(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)) > 0) {
                 txtNamaBrg.setText(FXML_MenuController.dtBarang.cariNamaBarang(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)));
                 chbJenis.setValue(FXML_MenuController.dtBarang.cariJenis(bum.getKodebrg(), ldc.getUser(FXML_PilihCustomerController.user)));
+
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Kodebrg sudah ada pada table lain, reload nama barang dan jenis . . . ", ButtonType.OK);
                 a.showAndWait();
                 Alert b = new Alert(Alert.AlertType.INFORMATION, "Silahkan Simpan lagi", ButtonType.OK);
                 b.showAndWait();
+
                 txtKodeBrg.requestFocus();
             }
         }

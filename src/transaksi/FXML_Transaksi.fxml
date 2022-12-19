@@ -30,7 +30,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="lblInputJumlah" alignment="CENTER" layoutX="217.0" layoutY="73.0" prefHeight="123.0" prefWidth="226.0" text="Input jumlah yang ingin dibeli" textAlignment="CENTER" textFill="#c1c62d" wrapText="true">
+      <Label alignment="CENTER" layoutX="217.0" layoutY="73.0" prefHeight="123.0" prefWidth="226.0" text="Input jumlah yang ingin dibeli" textAlignment="CENTER" textFill="#c1c62d" wrapText="true">
          <font>
             <Font name="Bookman Old Style Bold" size="32.0" />
          </font>
@@ -114,5 +114,21 @@
             </Bloom>
          </effect>
       </Label>
+      <Button fx:id="btnTambahKeKeranjangJ" layoutX="462.0" layoutY="185.0" mnemonicParsing="false" onAction="#tambahKeKeranjangJKlik" prefHeight="91.0" prefWidth="183.0" text="Tambah Ke Keranjang" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Calisto MT Italic" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnTambahBarangJ" alignment="CENTER" layoutX="20.0" layoutY="185.0" mnemonicParsing="false" onAction="#tambahBarangJKlik" prefHeight="91.0" prefWidth="183.0" text="Tambah Barang" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Calisto MT Italic" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

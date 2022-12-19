@@ -64,12 +64,13 @@ public class DB_Transaksi {
         Koneksi con = new Koneksi();
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("insert into keranjang_data(kodebrg, namabrg ,jenis ,harga, jumlah) values (?,?,?,?,?);");
-            con.preparedStatement.setString(1, getTransaksiModel().getKodebrg());
-            con.preparedStatement.setString(2, getTransaksiModel().getNamabrg());
-            con.preparedStatement.setString(3, getTransaksiModel().getJenis());
-            con.preparedStatement.setDouble(4, getTransaksiModel().getHarga());
-            con.preparedStatement.setInt(5, getTransaksiModel().getJumlah());
+            con.preparedStatement = con.dbKoneksi.prepareStatement("insert into keranjang_data(nojual, kodebrg, namabrg ,jenis ,harga, jumlah) values (?,?,?,?,?,?);");
+            con.preparedStatement.setString(1, getTransaksiModel().getNojual());
+            con.preparedStatement.setString(2, getTransaksiModel().getKodebrg());
+            con.preparedStatement.setString(3, getTransaksiModel().getNamabrg());
+            con.preparedStatement.setString(4, getTransaksiModel().getJenis());
+            con.preparedStatement.setDouble(5, getTransaksiModel().getHarga());
+            con.preparedStatement.setInt(6, getTransaksiModel().getJumlah());
 
             con.preparedStatement.executeUpdate();
             berhasil = true;

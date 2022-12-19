@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tokoelektronik.FXML_DataPenjualanBarangElektronikController">
+   <children>
+      <ImageView fitHeight="870.0" fitWidth="785.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/InputBarangCustomer.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="title" layoutX="81.0" layoutY="12.0" prefHeight="78.0" prefWidth="396.0" text="Detil Penjualan Barang Elektronik" textFill="#ff9400" wrapText="true">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="34.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.38">
+               <input>
+                  <DropShadow height="26.93" radius="10.74" spread="0.53" width="18.03" />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <TableView fx:id="tbvPenjualan" layoutX="83.0" layoutY="149.0" onMouseClicked="#setData" prefHeight="243.0" prefWidth="626.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+         </columns>
+      </TableView>
+      <Button layoutX="32.0" layoutY="227.0" mnemonicParsing="false" onAction="#sebelumKlikPenjualan" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Previous%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="32.0" layoutY="298.0" mnemonicParsing="false" onAction="#awalKlikPenjualan" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/First%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="739.0" layoutY="227.0" mnemonicParsing="false" onAction="#sesudahKlikPenjualan" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Next%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="739.0" layoutY="298.0" mnemonicParsing="false" onAction="#akhirKlikPenjualan" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Last%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TableView fx:id="tbvDetilPenjualan" layoutX="81.0" layoutY="474.0" prefHeight="309.0" prefWidth="626.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+         </columns>
+      </TableView>
+      <Button layoutX="30.0" layoutY="583.0" mnemonicParsing="false" onAction="#sebelumKlikDetilPenjualan" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Previous%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="30.0" layoutY="654.0" mnemonicParsing="false" onAction="#awalKlikDetilPenjualan" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/First%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="737.0" layoutY="583.0" mnemonicParsing="false" onAction="#sesudahKlikDetilPenjualan" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Next%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="737.0" layoutY="654.0" mnemonicParsing="false" onAction="#akhirKlikDetilPenjualan" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Last%20Button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnKembali" alignment="CENTER" layoutX="642.0" layoutY="803.0" mnemonicParsing="false" onAction="#kembaliKlik" prefHeight="42.0" prefWidth="131.0" style="-fx-background-radius: 1em;" text="Kembali" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Gill Sans Ultra Bold Condensed" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" layoutX="257.0" layoutY="399.0" mnemonicParsing="false" onAction="#hapusDataPenjualanKlik" prefHeight="63.0" prefWidth="277.0" style="-fx-background-radius: 5em;" text="Hapus Data Penjualan" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Gill Sans Ultra Bold Condensed" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="483.0" layoutY="33.0" text="Cari Data" textFill="#ff8a00">
+         <font>
+            <Font name="Bookman Old Style Bold" size="28.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.5">
+               <input>
+                  <DropShadow color="RED" height="12.1" radius="6.2925" width="15.07" />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <TextField fx:id="searchData" layoutX="483.0" layoutY="76.0" onKeyReleased="#cariData" prefHeight="52.0" prefWidth="287.0" promptText="Search" style="-fx-background-radius: 5em; -fx-background-color: white; -fx-border-color: #A52A2A; -fx-border-radius: 5em; -fx-border-width: 3px;">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtNoJual" layoutX="233.0" layoutY="102.0" prefHeight="35.0" prefWidth="149.0" />
+      <Label layoutX="83.0" layoutY="102.0" prefHeight="35.0" prefWidth="105.0" text="No Jual">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

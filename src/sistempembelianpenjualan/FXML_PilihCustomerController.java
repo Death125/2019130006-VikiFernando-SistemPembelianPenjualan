@@ -32,7 +32,7 @@ import javax.swing.JOptionPane;
  */
 public class FXML_PilihCustomerController implements Initializable {
 
-    private DB_Login ldb = new DB_Login();
+    final DB_Login ldb = new DB_Login();
     public static String user = "";
 
     @FXML
@@ -53,12 +53,16 @@ public class FXML_PilihCustomerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        addButtonStyle();
+        showData();
+    }
+
+    void addButtonStyle() {
         btnConfirm.getStyleClass().add("buttonStyle");
         btnSesudah.getStyleClass().add("buttonStyle");
         btnSebelum.getStyleClass().add("buttonStyle");
         btnAwal.getStyleClass().add("buttonStyle");
         btnAkhir.getStyleClass().add("buttonStyle");
-        showData();
     }
 
     public void showData() {
@@ -96,17 +100,13 @@ public class FXML_PilihCustomerController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Menu");
+
         String css = this.getClass().getResource("/Css/style.css").toExternalForm();
         scene.getStylesheets().add(css);
+
         stage.show();
         stage.centerOnScreen();
         JOptionPane.showMessageDialog(null, "Selamat Datang di Toko " + ldb.getUser(FXML_PilihCustomerController.user));
-    }
-
-    @FXML
-    private void sesudahKlik(ActionEvent event) {
-        tbvPilihCustomer.getSelectionModel().selectBelowCell();
-        tbvPilihCustomer.requestFocus();
     }
 
     @FXML
@@ -116,14 +116,20 @@ public class FXML_PilihCustomerController implements Initializable {
     }
 
     @FXML
-    private void akhirKlik(ActionEvent event) {
-        tbvPilihCustomer.getSelectionModel().selectLast();
+    private void sesudahKlik(ActionEvent event) {
+        tbvPilihCustomer.getSelectionModel().selectBelowCell();
         tbvPilihCustomer.requestFocus();
     }
 
     @FXML
     private void awalKlik(ActionEvent event) {
         tbvPilihCustomer.getSelectionModel().selectFirst();
+        tbvPilihCustomer.requestFocus();
+    }
+
+    @FXML
+    private void akhirKlik(ActionEvent event) {
+        tbvPilihCustomer.getSelectionModel().selectLast();
         tbvPilihCustomer.requestFocus();
     }
 

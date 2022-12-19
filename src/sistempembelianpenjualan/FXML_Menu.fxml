@@ -21,21 +21,29 @@
         <menus>
           <Menu mnemonicParsing="false" text="Input">
             <items>
-                  <MenuItem fx:id="miInputBarang" mnemonicParsing="false" onAction="#inputBarangKlik" text="Input Barang" />
-                  <MenuItem fx:id="miInputBuku" mnemonicParsing="false" onAction="#inputBukuKlik" text="Input Buku" />
-                  <MenuItem fx:id="miInputElektronik" mnemonicParsing="false" onAction="#inputElektronikKlik" text="Input Elektronik" />
+                  <MenuItem fx:id="miInputBarang" mnemonicParsing="false" onAction="#inputBarangKlik" text="Input barang" />
+                  <MenuItem fx:id="miInputBuku" mnemonicParsing="false" onAction="#inputBukuKlik" text="Input buku" />
+                  <MenuItem fx:id="miInputElektronik" mnemonicParsing="false" onAction="#inputElektronikKlik" text="Input barang elektronik" />
             </items>
           </Menu>
             <Menu fx:id="dataCust" mnemonicParsing="false" text="Data">
               <items>
-                  <MenuItem fx:id="barangCustomer" mnemonicParsing="false" onAction="#dataBarangKlik" text="Data Barang" />
-                  <MenuItem fx:id="miDetilPenjualan" mnemonicParsing="false" onAction="#detilPenjualanKlik" text="Detil Penjualan" />
+                  <MenuItem fx:id="barangCustomer" mnemonicParsing="false" onAction="#dataBarangKlik" text="Data barang" />
               </items>
             </Menu>
           <Menu fx:id="toko" mnemonicParsing="false" text="Toko">
             <items>
-                  <MenuItem fx:id="tokoElektronik" mnemonicParsing="false" onAction="#tokoElektronikKlik" text="Toko Elektronik" />
-                  <MenuItem fx:id="tokoBuku" mnemonicParsing="false" onAction="#tokoBukuKlik" text="Toko Buku" />
+                  <MenuItem fx:id="lblLaporanBuku" mnemonicParsing="false" onAction="#laporanBukuKlik" text="Laporan buku" />
+                  <MenuItem fx:id="tokoElektronik" mnemonicParsing="false" onAction="#tokoElektronikKlik" text="Toko elektronik" />
+                  <MenuItem fx:id="tokoBuku" mnemonicParsing="false" onAction="#tokoBukuKlik" text="Toko buku" />
+                <MenuItem fx:id="lblLaporanBarang" mnemonicParsing="false" onAction="#laporanBarangKlik" text="barang" />
+                  <MenuItem fx:id="lblLaporanElektronik" mnemonicParsing="false" onAction="#laporanElektronikKlik" text="Laporan barang elektronik" />
+                <MenuItem fx:id="lblLaporanPenjualan" mnemonicParsing="false" onAction="#laporanPenjualanKlik" text="Laporan penjualan" />
+                  <MenuItem fx:id="lblLaporanPenjualanTokoBuku" mnemonicParsing="false" onAction="#laporanPenjualanTokoBukuKlik" text="Laporan penjualan toko buku" />
+                  <MenuItem fx:id="lblLaporanPenjualanTokoElektronik" mnemonicParsing="false" onAction="#laporanPenjualanTokoElektronikKlik" text="Laporan penjualan toko elektronik" />
+                  <MenuItem fx:id="miDetilPenjualan" mnemonicParsing="false" onAction="#detilPenjualanKlik" text="Detil penjualan" />
+                  <MenuItem fx:id="miDetilPenjualanTokoBuku" mnemonicParsing="false" onAction="#detilPenjualanTokoBukuKlik" text="Detil penjualan toko buku" />
+                  <MenuItem fx:id="miDetilPenjualanTokoElektronik" mnemonicParsing="false" onAction="#detilPenjualanTokoElektronikKlik" text="Detil penjualan toko elektronik" />
             </items>
           </Menu>
         </menus>

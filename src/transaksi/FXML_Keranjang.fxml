@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -12,20 +13,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="613.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="transaksi.FXML_KeranjangController">
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="transaksi.FXML_KeranjangController">
    <children>
-      <ImageView fitHeight="609.0" fitWidth="613.0" pickOnBounds="true">
+      <ImageView fitHeight="675.0" fitWidth="748.0" pickOnBounds="true">
          <image>
             <Image url="@../Images/background.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="tbvKeranjang" layoutX="114.0" layoutY="104.0" prefHeight="261.0" prefWidth="385.0">
+      <TableView fx:id="tbvKeranjang" layoutX="115.0" layoutY="129.0" prefHeight="261.0" prefWidth="525.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
-      <Label fx:id="title" layoutX="139.0" layoutY="18.0" prefHeight="52.0" prefWidth="335.0" text="Keranjang Belanja" textFill="#ff9400">
+      <Label layoutX="33.0" layoutY="14.0" prefHeight="52.0" prefWidth="335.0" text="Keranjang Belanja" textFill="#ff9400">
          <font>
             <Font name="Franklin Gothic Demi Cond" size="45.0" />
          </font>
@@ -37,7 +38,7 @@
             </Bloom>
          </effect>
       </Label>
-      <Button fx:id="btnBeli" layoutX="114.0" layoutY="516.0" mnemonicParsing="false" onAction="#beliKlik" prefHeight="73.0" prefWidth="143.0" style="-fx-background-radius: 5em;" text="Beli" textFill="WHITE">
+      <Button fx:id="btnBeli" layoutX="115.0" layoutY="555.0" mnemonicParsing="false" onAction="#beliKlik" prefHeight="73.0" prefWidth="143.0" style="-fx-background-radius: 5em;" text="Beli" textFill="WHITE">
          <font>
             <Font name="Century751 BT Italic" size="27.0" />
          </font>
@@ -45,7 +46,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnKeluar" layoutX="356.0" layoutY="516.0" mnemonicParsing="false" onAction="#keluarKlik" prefHeight="73.0" prefWidth="143.0" style="-fx-background-radius: 5em;" text="Keluar" textFill="WHITE">
+      <Button fx:id="btnKeluar" layoutX="497.0" layoutY="555.0" mnemonicParsing="false" onAction="#keluarKlik" prefHeight="73.0" prefWidth="143.0" style="-fx-background-radius: 5em;" text="Keluar" textFill="WHITE">
          <font>
             <Font name="Century751 BT Italic" size="27.0" />
          </font>
@@ -53,7 +54,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="47.0" layoutY="185.0" mnemonicParsing="false" onAction="#sebelumKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+      <Button layoutX="48.0" layoutY="210.0" mnemonicParsing="false" onAction="#sebelumKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
          <font>
             <Font size="22.0" />
          </font>
@@ -68,7 +69,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="48.0" layoutY="261.0" mnemonicParsing="false" onAction="#awalKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+      <Button layoutX="49.0" layoutY="286.0" mnemonicParsing="false" onAction="#awalKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
          <font>
             <Font size="22.0" />
          </font>
@@ -83,7 +84,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="543.0" layoutY="185.0" mnemonicParsing="false" onAction="#sesudahKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+      <Button layoutX="673.0" layoutY="212.0" mnemonicParsing="false" onAction="#sesudahKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
          <font>
             <Font size="22.0" />
          </font>
@@ -98,7 +99,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="543.0" layoutY="261.0" mnemonicParsing="false" onAction="#akhirKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
+      <Button layoutX="673.0" layoutY="288.0" mnemonicParsing="false" onAction="#akhirKlik" prefHeight="51.0" prefWidth="131.0" style="-fx-background-radius: 5em; -fx-min-height: 20px; -fx-min-width: 20px; -fx-max-height: 20px; -fx-max-width: 20px;">
          <font>
             <Font size="22.0" />
          </font>
@@ -113,7 +114,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="UpdateButton" layoutX="215.0" layoutY="420.0" mnemonicParsing="false" onAction="#updateKlik" prefHeight="3.0" prefWidth="3.0" style="-fx-background-radius: 5em; -fx-max-width: 3px; -fx-max-height: 3px; -fx-min-height: 3px; -fx-min-width: 3px;">
+      <Button layoutX="288.0" layoutY="455.0" mnemonicParsing="false" onAction="#updateKlik" prefHeight="3.0" prefWidth="3.0" style="-fx-background-radius: 5em; -fx-max-width: 3px; -fx-max-height: 3px; -fx-min-height: 3px; -fx-min-width: 3px;">
          <font>
             <Font size="22.0" />
          </font>
@@ -128,7 +129,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="DeleteButton" layoutX="391.0" layoutY="419.0" mnemonicParsing="false" onAction="#hapusKlik" prefHeight="3.0" prefWidth="3.0" style="-fx-background-radius: 5em; -fx-max-width: 3px; -fx-max-height: 3px; -fx-min-height: 3px; -fx-min-width: 3px;">
+      <Button layoutX="464.0" layoutY="454.0" mnemonicParsing="false" onAction="#hapusKlik" prefHeight="3.0" prefWidth="3.0" style="-fx-background-radius: 5em; -fx-max-width: 3px; -fx-max-height: 3px; -fx-min-height: 3px; -fx-min-width: 3px;">
          <font>
             <Font size="22.0" />
          </font>
@@ -143,5 +144,26 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button fx:id="btnJual" layoutX="115.0" layoutY="555.0" mnemonicParsing="false" onAction="#jualKlik" prefHeight="73.0" prefWidth="143.0" style="-fx-background-radius: 5em;" text="Jual" textFill="WHITE">
+         <font>
+            <Font name="Century751 BT Italic" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="lblNoJual" layoutX="491.0" layoutY="23.0" text="No Jual" textFill="#ff8a00">
+         <font>
+            <Font name="Bookman Old Style Bold" size="28.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.5">
+               <input>
+                  <DropShadow color="RED" height="12.1" radius="6.2925" width="15.07" />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <TextField fx:id="txtNoJual" layoutX="491.0" layoutY="66.0" prefHeight="36.0" prefWidth="206.0" />
    </children>
 </AnchorPane>

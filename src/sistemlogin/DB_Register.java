@@ -32,14 +32,6 @@ public class DB_Register {
         return randomGoods[index];
     }
 
-//    public void checkGoods(){
-//        //
-//        if(){
-//            
-//        }else{
-//            
-//        }
-//    }
     public static int validasiUsername(String username) {
         int val = 0;
         try {
@@ -74,7 +66,7 @@ public class DB_Register {
         return val;
     }
 
-    public boolean CreateNewGoodsData(String customerName) {
+    public boolean CreateNewAccountData(String customerName) {
         boolean berhasil = false;
         Koneksi con = new Koneksi();
         try {
@@ -87,6 +79,15 @@ public class DB_Register {
                     + "    jumlah INT(5) NOT NULL,\n"
                     + "    PRIMARY KEY (kodebrg)\n"
                     + ");");
+            con.preparedStatement.executeUpdate();
+
+            con.preparedStatement = con.dbKoneksi.prepareStatement(" CREATE TABLE penjualan_" + customerName + " (\n"
+                    + "    nojual VARCHAR (20) NOT NULL ,\n "
+                    + "    tanggal DATE NOT NULL,\n "
+                    + "    username VARCHAR (30) NOT NULL,\n "
+                    + "    PRIMARY KEY (nojual)\n"
+                    + ");");
+
             berhasil = true;
             con.preparedStatement.executeUpdate();
 
@@ -95,6 +96,18 @@ public class DB_Register {
                         "INSERT INTO " + customerName
                         + " VALUES " + getRandomGoods() + ";"
                 );
+                con.preparedStatement.executeUpdate();
+
+                con.preparedStatement = con.dbKoneksi.prepareStatement(" CREATE TABLE detil_penjualan_" + customerName + " (\n"
+                        + "    nojual VARCHAR (20) NOT NULL ,\n "
+                        + "    kodebrg VARCHAR (20) NOT NULL,\n "
+                        + "    namabrg VARCHAR (50) NOT NULL,\n "
+                        + "    jenis VARCHAR (35) NOT NULL,\n"
+                        + "    harga DOUBLE NOT NULL,\n"
+                        + "    jumlah INT(5) NOT NULL,\n"
+                        + "    FOREIGN KEY (nojual) REFERENCES penjualan_" + customerName + "(nojual)"
+                        + ");");
+
                 con.preparedStatement.executeUpdate();
             }
         } catch (Exception e) {

@@ -179,7 +179,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnJual" layoutX="302.0" layoutY="529.0" mnemonicParsing="false" onAction="#jualKlik" prefHeight="73.0" prefWidth="143.0" style="-fx-background-radius: 5em;" text="Jual" textFill="WHITE">
+      <Button fx:id="btnJual" layoutX="302.0" layoutY="529.0" mnemonicParsing="false" onAction="#jualKlik" prefHeight="73.0" prefWidth="179.0" style="-fx-background-radius: 5em;" text="Jual Buku" textFill="WHITE">
          <font>
             <Font name="Century751 BT Italic" size="27.0" />
          </font>

@@ -28,6 +28,10 @@ import javafx.stage.Stage;
 import sistempembelianpenjualan.FXML_MenuController;
 import sistemlogin.DB_Login;
 import sistemlogin.LoginMenuController;
+import sistempembelianpenjualan.FXML_DisplayBarangController;
+import tokobuku.FXML_DisplayBukuController;
+import transaksi.FXML_InputKeranjangController;
+import transaksi.FXML_KeranjangController;
 import transaksi.FXML_TransaksiController;
 
 /**
@@ -37,8 +41,12 @@ import transaksi.FXML_TransaksiController;
  */
 public class FXML_DisplayBarang_elektronikController implements Initializable {
 
-    private DB_Login ldb = new DB_Login();
+    final DB_Login ldb = new DB_Login();
     public static boolean batalBeli = false;
+
+    public static boolean tokoElektronik;
+    public static boolean isJualBarangElektronik = false;
+    public static boolean sudahBeliJual = false;
 
     @FXML
     private Label title;
@@ -66,13 +74,36 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        addButtonStyle();
+        checkLogin();
+
+        validationIsElectronicStore();
+        jualanBarang();
+
+        showData();
+    }
+
+    void addButtonStyle() {
         btnBeli.getStyleClass().add("buttonStyle2");
         btnJual.getStyleClass().add("buttonStyle2");
         btnKeluar.getStyleClass().add("buttonStyle2");
         btnTambahBarang.getStyleClass().add("buttonStyle2");
+    }
 
-        showData();
-        checkLogin();
+    /*Validasi*/
+    void validationIsElectronicStore() {
+        FXML_DisplayBukuController.tokoBuku = false;
+        tokoElektronik = true;
+    }
+
+    public void jualanBarang() {
+        if (FXML_DisplayBarangController.customer == true && isJualBarangElektronik == true) {
+            AddButton.setVisible(false);
+            UpdateButton.setVisible(false);
+            DeleteButton.setVisible(false);
+            btnTambahBarang.setVisible(true);
+            btnTambahBarang.setText("Jual");
+        }
     }
 
     public void checkQuantityOfItems() {
@@ -110,6 +141,7 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
         }
     }
 
+    /**/
     public void showData() {
         ObservableList<BarangElektronikModel> data = FXML_MenuController.dtElektronik.Load();
         if (data != null) {
@@ -140,6 +172,7 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
         } else {
             Alert a = new Alert(Alert.AlertType.ERROR, "Data kosong", ButtonType.OK);
             a.showAndWait();
+
             tbvBarangElektronik.getScene().getWindow().hide();
         }
     }
@@ -195,6 +228,10 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setIconified(false);
             stg.setScene(scene);
+
+            String css = this.getClass().getResource("/Css/style.css").toExternalForm();
+            scene.getStylesheets().add(css);
+
             stg.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
@@ -219,6 +256,10 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
                 stg.initModality(Modality.APPLICATION_MODAL);
                 stg.setIconified(false);
                 stg.setScene(scene);
+
+                String css = this.getClass().getResource("/Css/style.css").toExternalForm();
+                scene.getStylesheets().add(css);
+
                 stg.showAndWait();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -230,35 +271,6 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
             Alert a = new Alert(Alert.AlertType.WARNING, "Pilih dahulu barang yang ingin anda update", ButtonType.YES, ButtonType.NO);
             a.showAndWait();
         }
-    }
-
-    @FXML
-    private void sesudahKlik(ActionEvent event) {
-        tbvBarangElektronik.getSelectionModel().selectBelowCell();
-        tbvBarangElektronik.requestFocus();
-    }
-
-    @FXML
-    private void keluarKlik(ActionEvent event) {
-        btnKeluar.getScene().getWindow().hide();
-    }
-
-    @FXML
-    private void akhirKlik(ActionEvent event) {
-        tbvBarangElektronik.getSelectionModel().selectLast();
-        tbvBarangElektronik.requestFocus();
-    }
-
-    @FXML
-    private void sebelumKlik(ActionEvent event) {
-        tbvBarangElektronik.getSelectionModel().selectAboveCell();
-        tbvBarangElektronik.requestFocus();
-    }
-
-    @FXML
-    private void awalKlik(ActionEvent event) {
-        tbvBarangElektronik.getSelectionModel().selectFirst();
-        tbvBarangElektronik.requestFocus();
     }
 
     @FXML
@@ -289,6 +301,21 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
 
     @FXML
     private void beliKlik(ActionEvent event) {
+        batalBeli = true;
+
+        System.out.println("apakah Elektronik on ?" + FXML_MenuController.isElektronik);
+        System.out.println("apakah Buku on ?" + FXML_MenuController.isBuku);
+        System.out.println("apakah Customer on ?" + FXML_MenuController.isCustomer);
+
+        FXML_KeranjangController.isBuy = true;
+
+        FXML_MenuController.isCustomer = false;
+        FXML_MenuController.isElektronik = true;
+
+        FXML_InputKeranjangController.isUpdateJual = false;
+        FXML_DisplayBarangController.jualBarang = false;
+        FXML_TransaksiController.tambahKeKeranjangJ = false;
+
         BarangElektronikModel bem = new BarangElektronikModel();
         bem = tbvBarangElektronik.getSelectionModel().getSelectedItem();
 
@@ -308,10 +335,12 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
                 stg.initModality(Modality.APPLICATION_MODAL);
                 stg.setIconified(false);
                 stg.setScene(scene);
+
                 String css = this.getClass().getResource("/Css/style.css").toExternalForm();
                 scene.getStylesheets().add(css);
-                stg.centerOnScreen();
+
                 stg.showAndWait();
+
                 btnBeli.setVisible(false);
                 btnJual.setVisible(false);
                 btnTambahBarang.setVisible(true);
@@ -333,11 +362,40 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
     }
 
     @FXML
-    private void jualKlik(ActionEvent event) {
+    private void jualKlik(ActionEvent event) throws IOException {
+
+        FXML_DisplayBarangController.jualBarang = true;
+        FXML_InputKeranjangController.isUpdateJual = true;
+        FXML_KeranjangController.isBuy = false;
+
+        FXML_MenuController.isCustomer = true;
+        FXML_MenuController.isElektronik = false;
+
+        FXML_TransaksiController.tambahKeKeranjangJ = true;
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/sistempembelianpenjualan/FXML_DisplayBarang.fxml"));
+        Parent root = (Parent) loader.load();
+
+        Scene scene = new Scene(root);
+        Stage stg = new Stage();
+        stg.initModality(Modality.APPLICATION_MODAL);
+        stg.setIconified(false);
+        stg.setScene(scene);
+
+        String css = this.getClass().getResource("/Css/style.css").toExternalForm();
+        scene.getStylesheets().add(css);
+
+        stg.showAndWait();
+
+        checkQuantityOfItems();
+        showData();
+        awalKlik(event);
     }
 
     @FXML
     private void tambahBarangKlik(ActionEvent event) {
+        batalBeli = false;
+
         BarangElektronikModel bem = new BarangElektronikModel();
         bem = tbvBarangElektronik.getSelectionModel().getSelectedItem();
 
@@ -345,6 +403,7 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/transaksi/FXML_Transaksi.fxml"));
                 Parent root = (Parent) loader.load();
+
                 if (bem == null) {
                     Alert a = new Alert(Alert.AlertType.WARNING, "Pilih Barang yang ingin anda beli terlebih dahulu");
                     a.showAndWait();
@@ -358,8 +417,10 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
                     stg.initModality(Modality.APPLICATION_MODAL);
                     stg.setIconified(false);
                     stg.setScene(scene);
+
                     String css = this.getClass().getResource("/Css/style.css").toExternalForm();
                     scene.getStylesheets().add(css);
+
                     stg.centerOnScreen();
                     stg.showAndWait();
                     btnBeli.setVisible(false);
@@ -371,6 +432,11 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
                         btnJual.setVisible(true);
                         btnTambahBarang.setVisible(false);
                         batalBeli = false;
+                    } else if (isJualBarangElektronik == true) {
+                        if (sudahBeliJual == true) {
+                            sudahBeliJual = false;
+                            btnKeluar.getScene().getWindow().hide();
+                        }
                     }
                 }
 
@@ -387,4 +453,36 @@ public class FXML_DisplayBarang_elektronikController implements Initializable {
 
     }
 
+    @FXML
+    private void sebelumKlik(ActionEvent event) {
+        tbvBarangElektronik.getSelectionModel().selectAboveCell();
+        tbvBarangElektronik.requestFocus();
+    }
+
+    @FXML
+    private void sesudahKlik(ActionEvent event) {
+        tbvBarangElektronik.getSelectionModel().selectBelowCell();
+        tbvBarangElektronik.requestFocus();
+    }
+
+    @FXML
+    private void awalKlik(ActionEvent event) {
+        tbvBarangElektronik.getSelectionModel().selectFirst();
+        tbvBarangElektronik.requestFocus();
+    }
+
+    @FXML
+    private void akhirKlik(ActionEvent event) {
+        tbvBarangElektronik.getSelectionModel().selectLast();
+        tbvBarangElektronik.requestFocus();
+    }
+
+    @FXML
+    private void keluarKlik(ActionEvent event) {
+        FXML_DisplayBarangController.jualBarang = false;
+        isJualBarangElektronik = false;
+        FXML_MenuController.dtTransaksi.deleteAll();
+
+        btnKeluar.getScene().getWindow().hide();
+    }
 }

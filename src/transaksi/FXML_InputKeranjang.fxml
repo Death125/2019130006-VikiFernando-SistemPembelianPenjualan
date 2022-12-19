@@ -89,5 +89,13 @@
             </Bloom>
          </effect>
       </Label>
+      <Button fx:id="btnConfirmJ" layoutX="178.0" layoutY="312.0" mnemonicParsing="false" onAction="#confirmKlikJ" prefHeight="69.0" prefWidth="204.0" style="-fx-background-radius: 5em;" text="Confirm">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

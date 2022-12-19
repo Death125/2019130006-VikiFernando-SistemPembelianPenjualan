@@ -18,7 +18,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -47,14 +46,16 @@ public class LoginMenuController implements Initializable {
     private Button btnLogin;
     @FXML
     private Button btnRegister;
-    @FXML
-    private Label gradient1;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        addButtonStyle();
+    }
+
+    void addButtonStyle() {
         btnLogin.getStyleClass().add("buttonStyle");
         btnRegister.getStyleClass().add("buttonStyle");
     }
@@ -90,10 +91,65 @@ public class LoginMenuController implements Initializable {
                     scene = new Scene(root);
                     stage.setScene(scene);
                     stage.setTitle("Pilih Customer");
+
                     String css = this.getClass().getResource("/Css/style.css").toExternalForm();
                     scene.getStylesheets().add(css);
                     String css2 = this.getClass().getResource("/Css/tablestyle.css").toExternalForm();
                     scene.getStylesheets().add(css2);
+
+                    stage.centerOnScreen();
+                    stage.show();
+
+                    //Saving Email & Password When Login
+                    try {
+                        BufferedWriter writer = new BufferedWriter(new FileWriter("src\\\\SavedLogin\\\\LoginData.txt"));
+                        writer.write(Username + "\n");
+                        writer.write(Password);
+                        writer.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    JOptionPane.showMessageDialog(null, "Welcome " + ldb.getUser(Username));
+
+                } else if (Username.equals("") && Password.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please fill in your username and password");
+                } else if (ldb.validasiUsername(Username) <= 0) {
+                    JOptionPane.showMessageDialog(null, "Username is not registered");
+                } else if (ldb.validasiPassword(Password) <= 0) {
+                    JOptionPane.showMessageDialog(null, "Your password is WRONG !");
+                }
+                con.tutupKoneksi();
+            } else if (txtUsernameOrEmail.getText().equals("admin") || txtUsernameOrEmail.getText().equals("admin@gmail.com")) {
+                Username = txtUsernameOrEmail.getText();
+                Email = txtUsernameOrEmail.getText();
+
+                Koneksi con = new Koneksi();
+                con.bukaKoneksi();
+                con.statement = con.dbKoneksi.createStatement();
+                con.preparedStatement = con.dbKoneksi.prepareStatement("Select *from login_data WHERE( username= BINARY ? OR email = BINARY ?) AND password = BINARY?");
+
+                con.preparedStatement.setString(1, Username);
+                con.preparedStatement.setString(2, Email);
+                con.preparedStatement.setString(3, Password);
+
+                rs = con.preparedStatement.executeQuery();
+
+                if (rs.next()) {
+
+                    JOptionPane.showMessageDialog(null, "Login Success");
+
+                    Parent root = FXMLLoader.load(getClass().getResource("FXML_Admin.fxml"));
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.setTitle("Admin Home");
+
+                    String css = this.getClass().getResource("/Css/style.css").toExternalForm();
+                    scene.getStylesheets().add(css);
+                    String css2 = this.getClass().getResource("/Css/tablestyle.css").toExternalForm();
+                    scene.getStylesheets().add(css2);
+
                     stage.centerOnScreen();
                     stage.show();
 
@@ -141,6 +197,7 @@ public class LoginMenuController implements Initializable {
                     scene = new Scene(root);
                     stage.setScene(scene);
                     stage.setTitle("Menu");
+
                     String css = this.getClass().getResource("/Css/style.css").toExternalForm();
                     scene.getStylesheets().add(css);
                     String css2 = this.getClass().getResource("/Css/tablestyle.css").toExternalForm();
@@ -173,7 +230,6 @@ public class LoginMenuController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
@@ -183,8 +239,10 @@ public class LoginMenuController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Register");
+
         String css = this.getClass().getResource("/Css/style.css").toExternalForm();
         scene.getStylesheets().add(css);
+
         stage.centerOnScreen();
         stage.show();
     }

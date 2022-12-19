@@ -45,9 +45,16 @@ public class FXML_CustomerHomeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        addButtonStyle();
+        validasiUsername();
+    }
+
+    void addButtonStyle() {
         btnMasuk.getStyleClass().add("buttonStyle2");
         btnKembali.getStyleClass().add("buttonStyle3");
+    }
 
+    void validasiUsername() {
         if (ldb.getUser(LoginMenuController.Username).equals("buku")) {
             customerTitle.setText(ldb.getUser(FXML_PilihCustomerController.user).toUpperCase() + "'S" + " STORE");
         } else if (ldb.getUser(LoginMenuController.Username).equals("elektronik")) {
@@ -82,15 +89,7 @@ public class FXML_CustomerHomeController implements Initializable {
 
     @FXML
     private void kembaliKlik(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FXML_Menu.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Menu");
-        String css = this.getClass().getResource("/Css/style.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.centerOnScreen();
-        stage.show();
+        btnKembali.getScene().getWindow().hide();
     }
 
 }
