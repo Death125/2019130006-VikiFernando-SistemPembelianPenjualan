@@ -59,9 +59,7 @@ public class FXML_KeranjangController implements Initializable {
     private Button btnKeluar;
     @FXML
     private Button btnJual;
-    @FXML
     private Label lblNoJual;
-    @FXML
     private TextField txtNoJual;
 
     /**
