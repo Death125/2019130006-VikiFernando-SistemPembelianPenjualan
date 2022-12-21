@@ -59,8 +59,6 @@ public class FXML_KeranjangController implements Initializable {
     private Button btnKeluar;
     @FXML
     private Button btnJual;
-    private Label lblNoJual;
-    private TextField txtNoJual;
 
     /**
      * Initializes the controller class.
@@ -87,13 +85,9 @@ public class FXML_KeranjangController implements Initializable {
         if (isBuy == true) {
             btnBeli.setVisible(true);
             btnJual.setVisible(false);
-            lblNoJual.setVisible(false);
-            txtNoJual.setVisible(false);
         } else {
             btnJual.setVisible(true);
             btnBeli.setVisible(false);
-            lblNoJual.setVisible(true);
-            txtNoJual.setVisible(true);
         }
     }/**/
 
